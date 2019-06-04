@@ -26,8 +26,13 @@ const PostDetails = props => {
       <Date>📅 {props.date}</Date>
       <span>•</span>
       <ReadingTime>{`⏱️${props.timeToRead} min read `}</ReadingTime>
-      <span>•</span>
-      <Author>Author: {props.author}</Author>
+      { props.author &&
+      <span>
+        <span>•</span>
+        <Author>Author: {props.author}</Author>
+        </span>
+      }
+
     </Wrapper>
   )
 }

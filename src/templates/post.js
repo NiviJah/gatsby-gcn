@@ -19,6 +19,7 @@ const PostTemplate = ({ data, pageContext }) => {
     body,
     publishDate,
     tags,
+    author,
   } = data.contentfulPost
   const postNode = data.contentfulPost
 
@@ -39,6 +40,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <PostDetails
           date={publishDate}
           timeToRead={body.childMarkdownRemark.timeToRead}
+          author={author}
         />
         <PageBody body={body} />
       </Container>
@@ -52,6 +54,7 @@ export const query = graphql`
     contentfulPost(slug: { eq: $slug }) {
       title
       slug
+      author
       metaDescription {
         internal {
           content

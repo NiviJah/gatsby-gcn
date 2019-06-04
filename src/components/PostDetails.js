@@ -16,6 +16,9 @@ const Date = styled.p`
 const ReadingTime = styled.p`
   display: inline-block;
 `
+const Author = styled.p`
+  display: inline-block;
+`
 
 const PostDetails = props => {
   return (
@@ -23,6 +26,8 @@ const PostDetails = props => {
       <Date>📅 {props.date}</Date>
       <span>•</span>
       <ReadingTime>{`⏱️${props.timeToRead} min read `}</ReadingTime>
+      <span>•</span>
+      <Author>Author: {props.author}</Author>
     </Wrapper>
   )
 }

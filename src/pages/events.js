@@ -27,6 +27,15 @@ const FullCalendarWrapper = styled.div`
 `
 
 class EventsPage extends React.Component {
+
+  componentDidMount() {
+    import("@fullcalendar/react")
+      .then((FullCalendar) => {
+        this.FullCalendar = FullCalendar;
+      })
+      .catch((error) => console.error(error));
+  }
+
   render() {
     const events = [
       {

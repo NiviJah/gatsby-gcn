@@ -1,21 +1,6 @@
 const config = require('./src/utils/siteConfig')
 const path = require(`path`)
 
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === "build-html") {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /fullcalendar/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    })
-  }
-}
-
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 

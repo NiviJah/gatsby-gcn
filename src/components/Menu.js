@@ -55,6 +55,11 @@ const Menu = () => {
             </Link>
           </li>
           <li>
+            <Link to="/events/" activeStyle={activeLinkStyle}>
+              Events
+            </Link>
+          </li>
+          <li>
             <Link to="/about/" activeStyle={activeLinkStyle}>
               About
             </Link>

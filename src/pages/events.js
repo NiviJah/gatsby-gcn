@@ -27,15 +27,6 @@ const FullCalendarWrapper = styled.div`
 `
 
 class EventsPage extends React.Component {
-
-  componentDidMount() {
-    import("@fullcalendar/react")
-      .then((FullCalendar) => {
-        this.FullCalendar = FullCalendar;
-      })
-      .catch((error) => console.error(error));
-  }
-
   render() {
     const events = [
       {
@@ -46,7 +37,7 @@ class EventsPage extends React.Component {
       },
       { title: 'event 2', date: '2019-04-02' },
     ]
-
+    if (typeof window !== 'undefined') {
     return (
       <Layout>
         <Helmet>
@@ -58,6 +49,7 @@ class EventsPage extends React.Component {
           <PageTitle>Events</PageTitle>
           <Text>This will be the Event calendar page</Text>
           <FullCalendarWrapper>
+            
             <FullCalendar
               eventClick={this.handleEventClick}
               defaultView="dayGridMonth"
@@ -68,6 +60,7 @@ class EventsPage extends React.Component {
         </Container>
       </Layout>
     )
+    }
   }
 
   handleEventClick = arg => {

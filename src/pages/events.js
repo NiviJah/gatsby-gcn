@@ -1,16 +1,12 @@
 import React from 'react'
+import Loadable from 'react-loadable'
+
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import PageTitle from '../components/PageTitle'
 import Container from '../components/Container'
 import Layout from '../components/Layout'
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin from '@fullcalendar/interaction'
-
-import '@fullcalendar/core/main.css'
-import '@fullcalendar/daygrid/main.css'
 
 const Text = styled.p`
   text-align: center;
@@ -25,19 +21,15 @@ const FullCalendarWrapper = styled.div`
     cursor: pointer;
   }
 `
+const LoadableCallendar = Loadable({
+  loader: () => import('../components/EventCalendar'),
+  loading() {
+    return <div>Loading...</div>
+  },
+})
 
 class EventsPage extends React.Component {
   render() {
-    const events = [
-      {
-        title: 'event 1',
-        start: '2019-04-02T13:13:55.008',
-        end: '2019-04-03T13:13:55.008',
-        description: 'this is my event',
-      },
-      { title: 'event 2', date: '2019-04-02' },
-    ]
-    if (typeof window !== 'undefined') {
     return (
       <Layout>
         <Helmet>
@@ -48,19 +40,10 @@ class EventsPage extends React.Component {
         <Container>
           <PageTitle>Events</PageTitle>
           <Text>This will be the Event calendar page</Text>
-          <FullCalendarWrapper>
-            
-            <FullCalendar
-              eventClick={this.handleEventClick}
-              defaultView="dayGridMonth"
-              plugins={[dayGridPlugin, interactionPlugin]}
-              events={events}
-            />
-          </FullCalendarWrapper>
+          <LoadableCallendar />
         </Container>
       </Layout>
     )
-    }
   }
 
   handleEventClick = arg => {

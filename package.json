@@ -23,6 +23,7 @@
     "gatsby-plugin-nprogress": "^2.0.10",
     "gatsby-plugin-offline": "^2.0.25",
     "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sass": "^2.1.0",
     "gatsby-plugin-sitemap": "^2.0.12",
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-remark-autolink-headers": "^2.0.16",
@@ -35,11 +36,13 @@
     "inquirer": "^6.3.1",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
+    "node-sass": "^4.12.0",
     "path": "^0.12.7",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
+    "react-loadable": "^5.5.0",
     "styled-components": "^4.2.0"
   },
   "keywords": [
